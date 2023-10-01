@@ -1,3 +1,4 @@
+// R4_BUTTERFLY [VER 1.4]
 `timescale 1ns/1ps 
 
 `define width 4 
@@ -8,7 +9,7 @@ parameter width=`width;
 
 input [width-1:0] xr0,xi0, xr1,xi1, xr2,xi2, xr3,xi3; 
 output [width-1:0] Xro,Xio; 
-wire [width-1:0] m0,m1,m2,m3, s0,s1,s2,s3; 
+wire [width-1:0] m0,m1,m2,m3,s0,s1,s2,s3; 
 wire m4;
 input c1,c2,c3; 
 
@@ -32,17 +33,14 @@ module addsub(A, B, ADD_SUB, SUM);
    input [3:0] A;
    input [3:0] B;
    input ADD_SUB;
-  output [3:0] SUM;
-  reg [3:0] SUM;
-
-   always @ (A or B)
-   begin
-     if (ADD_SUB == 0)
-      SUM <= A + B;
-      else
-      SUM <= A - B;
-   end
-
+   output [3:0] SUM;
+   wire c,d;
+ 
+   assign c = A + B;
+   assign d = A - B;
+   assign SUM = ADD_SUB ? c : d;
+   
+   
 endmodule
 
 module XOR(Y, A, B);
@@ -62,6 +60,6 @@ module mux2(out, in0, in1, cont);
   input cont;
   output [3:0] out;
 
-  assign out = (cont)?in1:in0;
+  assign out = cont ? in1:in0;
 
 endmodule
