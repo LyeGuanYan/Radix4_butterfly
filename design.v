@@ -49,11 +49,10 @@ module XOR(Y, A, B);
   input A;
   input B;
   output Y;
-  reg Y;
+
+  assign Y= A^B;
   
-  assign Y = A^B;
-  
-endmodule
+  endmodule
   
   
 module mux2(out, in0, in1, cont);
@@ -62,7 +61,6 @@ module mux2(out, in0, in1, cont);
   input [3:0] in1;
   input cont;
   output [3:0] out;
-  reg [3:0] out;
 
   assign out = (cont)?in1:in0;
 
