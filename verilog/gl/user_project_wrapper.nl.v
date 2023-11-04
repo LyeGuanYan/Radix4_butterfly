@@ -1,12 +1,5 @@
+// This is the unpowered netlist.
 module user_project_wrapper (user_clock2,
-    vccd1,
-    vccd2,
-    vdda1,
-    vdda2,
-    vssa1,
-    vssa2,
-    vssd1,
-    vssd2,
     wb_clk_i,
     wb_rst_i,
     wbs_ack_o,
@@ -26,14 +19,6 @@ module user_project_wrapper (user_clock2,
     wbs_dat_o,
     wbs_sel_i);
  input user_clock2;
- input vccd1;
- input vccd2;
- input vdda1;
- input vdda2;
- input vssa1;
- input vssa2;
- input vssd1;
- input vssd2;
  input wb_clk_i;
  input wb_rst_i;
  output wbs_ack_o;
@@ -59,8 +44,6 @@ module user_project_wrapper (user_clock2,
     .c1(la_data_in[45]),
     .c2(la_data_in[46]),
     .c3(la_data_in[47]),
-    .vccd1(vccd1),
-    .vssd1(vssd1),
     .Xio({la_data_out[16],
     la_data_out[15],
     la_data_out[14],
@@ -102,3 +85,4 @@ module user_project_wrapper (user_clock2,
     la_data_in[21],
     la_data_in[20]}));
 endmodule
+

@@ -82,40 +82,27 @@ module user_project_wrapper #(
 /* User project is instantiated  here   */
 /*--------------------------------------*/
 
-user_proj_example mprj (
+R4_butter R4_butter (
 `ifdef USE_POWER_PINS
 	.vccd1(vccd1),	// User area 1 1.8V power
 	.vssd1(vssd1),	// User area 1 digital ground
 `endif
 
-    .wb_clk_i(wb_clk_i),
-    .wb_rst_i(wb_rst_i),
-
-    // MGMT SoC Wishbone Slave
-
-    .wbs_cyc_i(wbs_cyc_i),
-    .wbs_stb_i(wbs_stb_i),
-    .wbs_we_i(wbs_we_i),
-    .wbs_sel_i(wbs_sel_i),
-    .wbs_adr_i(wbs_adr_i),
-    .wbs_dat_i(wbs_dat_i),
-    .wbs_ack_o(wbs_ack_o),
-    .wbs_dat_o(wbs_dat_o),
-
-    // Logic Analyzer
-
-    .la_data_in(la_data_in),
-    .la_data_out(la_data_out),
-    .la_oenb (la_oenb),
-
-    // IO Pads
-
-    .io_in ({io_in[37:30],io_in[7:0]}),
-    .io_out({io_out[37:30],io_out[7:0]}),
-    .io_oeb({io_oeb[37:30],io_oeb[7:0]}),
-
-    // IRQ
-    .irq(user_irq)
+    .xr0(la_data_in[11:8]),
+    .xr1(la_data_in[15:12]),
+    .xr2(la_data_in[19:16]),
+    .xr3(la_data_in[23:20]),
+    .xi0(la_data_in[28:25]),
+    .xi1(la_data_in[33:30]),
+    .xi2(la_data_in[38:35]),
+    .xi3(la_data_in[43:40]),
+    .c1(la_data_in[45]),
+    .c2(la_data_in[46]),
+    .c3(la_data_in[47]),
+    .Xro(la_data_out[11:8]),
+    .Xio(la_data_out[16:13]),
+    .RST(wb_rst_i),
+    .CLK(wb_clk_i)
 );
 
 endmodule	// user_project_wrapper
