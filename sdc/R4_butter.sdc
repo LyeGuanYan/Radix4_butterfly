@@ -1,6 +1,6 @@
 ###############################################################################
 # Created by write_sdc
-# Sat Nov  4 08:47:56 2023
+# Sat Nov  4 11:58:16 2023
 ###############################################################################
 current_design R4_butter
 ###############################################################################
@@ -8,8 +8,8 @@ current_design R4_butter
 ###############################################################################
 create_clock -name clk -period 25.0000 
 set_clock_uncertainty 0.2500 clk
-set_clock_latency -source -min 5.8700 [get_clocks {clk}]
-set_clock_latency -source -max 6.0000 [get_clocks {clk}]
+set_clock_latency -source -min 4.6500 [get_clocks {clk}]
+set_clock_latency -source -max 5.5700 [get_clocks {clk}]
 ###############################################################################
 # Environment
 ###############################################################################
